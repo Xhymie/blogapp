@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Kayıt{% endblock %}
+
+{% block content %}
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <form id="register-form">
+                    {% csrf_token %}
+                    <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
+  
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="username">Kullanıcı Adı</label>
+                      <input type="text" id="username" class="form-control" name="username" required />
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="firstname">Ad</label>
+                      <input type="text" id="firstname" class="form-control" name="firstname" required />
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="lastname">Soyad</label>
+                      <input type="text" id="lastname" class="form-control" name="lastname" required />
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="email">Email</label>
+                      <input type="email" id="email" class="form-control" name="email" required />
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="password">Şifre</label>
+                        <input type="password" id="password" class="form-control" name="password" required />
+                        <div id="password-strength" class="mt-2"></div>
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="repassword">Tekrardan Şifre</label>
+                        <input type="password" id="repassword" class="form-control" name="repassword" required />
+                    </div>
+  
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <button class="btn btn-primary btn-block gradient-custom-2 mb-0" type="submit" style="flex: 1;">Kayıt Ol</button>
+                    </div>
+  
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Zaten bir hesabınız var mı?</p>
+                      <a href="{% url 'login' %}" class="btn btn-primary btn-block gradient-custom-2 mb-0">Giriş Yap</a>
+                    </div>
+                  </form>
+  
+                  <div id="success-message" class="alert alert-success d-none" role="alert">
+                    <i class="fas fa-check-circle"></i> Başarıyla kaydoldunuz!
+                  </div>
+  
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">Blogumda sizinle paylaşacak çok şeyim var</h4>
+                  <p class="small mb-0">Merhaba Blog Sever! En yeni makalelerimizden, ilham verici hikayelere katılmak bunlara yorum yapmak ve anında haberdar olmak için şimdi üye olun. Aramıza katılın, hiçbir şeyi kaçırmayın.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+  
+{% endblock %}

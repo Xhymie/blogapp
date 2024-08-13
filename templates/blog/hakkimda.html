@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Hakkımda{% endblock %}
+
+{% block content %}
+<section id="about" class="about section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2 class="mb-3">Hakkımda</h2>
+    </div>
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 justify-content-center">
+            <div class="col-lg-4">
+                <img src="{% static 'blog/img/pp.jfif' %}" class="img-fluid" alt="Ahmet Çağlar">
+            </div>
+            <div class="col-lg-8 content">
+                <h2>Yazılım Mühendisliği Öğrencisi</h2>
+                <p class="fst-italic py-3">
+                    Ben Ahmet Çağlar. 30 Ağustos 2001'de Aksaray'da doğdum. Şu anda Kocaeli Üniversitesi'nde Yazılım Mühendisliği bölümünde 3. sınıf olarak eğitimime devam etmekteyim.
+                </p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Doğum Günü:</strong> <span>30 Ağustos 2001</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.caglarrahmett.com</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Telefon:</strong> <span>+90 123 456 7890</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Şehir:</strong> <span>Kocaeli, Türkiye</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Yaş:</strong> <span>22</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Derece:</strong> <span>Lisans Üniversite Öğrencisi</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>caglarrahmett@gmail.com</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Müsait</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="py-3">
+                    Yazılıma olan ilgim küçük yaşlarda başladı ve bu ilgimi üniversite eğitimimle profesyonel bir düzeye taşımaya karar verdim. Eğitim hayatım boyunca birçok projede yer aldım ve çeşitli teknolojilerle çalıştım. Özellikle web geliştirme, yapay zeka ve makine öğrenimi alanlarında kendimi geliştirmekteyim. Boş zamanlarımda yeni teknolojileri öğrenmeyi, kod yazmayı ve müzik dinlemeyi seviyorum. Gelecekte, yazılım dünyasında önemli projelerde yer almayı ve kendi startup'ımı kurmayı hedefliyorum.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="skills section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Yetenekler</h2>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row skills-content skills-animation">
+            <div class="col-lg-6">
+                <div class="progress">
+                    <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress">
+                    <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress">
+                    <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress">
+                    <span class="skill"><span>C</span> <i class="val">90%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="90" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="progress">
+                    <span class="skill"><span>Python</span> <i class="val">70%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress">
+                    <span class="skill"><span>Django</span> <i class="val">60%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress">
+                    <span class="skill"><span>C#</span> <i class="val">55%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js_files %} 
+    <script src="{% static 'blog/js/script.js' %}"></script>
+{% endblock %}

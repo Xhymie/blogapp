@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Blog Detayları{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h1 class="card-title h3 mb-3">{{ blog.title|title }}</h1>
+                            <img src="{{ blog.image.url }}" alt="" class="img-fluid mb-3" style="float:left; margin-right:20px; max-width: 50%;">
+                            <p class="card-text">{{ blog.description|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Yorumlar</h2>
+            <div>
+                {% for comment in comments %}
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <p><strong>{{ comment.author }}:</strong> {{ comment.content }}</p>
+                            <p class="text-muted">{{ comment.created_at|date:"d F Y H:i" }}</p>
+                            {% if user == comment.author or user.is_staff %}
+                                <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?');">Sil</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <h2>Yorum Yap</h2>
+            {% if user.is_authenticated %}
+                <form method="post" class="mb-5">
+                    {% csrf_token %}
+                    {{ comment_form.as_p }}
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </form>
+            {% else %}
+                <p>Yorum yapmak için <a href="{% url 'login' %}">giriş yapmalısınız</a>.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

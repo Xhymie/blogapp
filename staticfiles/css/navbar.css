@@ -1,0 +1,19 @@
+#search-results {
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparan arka plan */
+    border: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+#search-results .list-group-item {
+    border: none; /* Kenar çizgilerini kaldır */
+}
+
+#search-results .list-group-item:hover {
+    background-color: #f0f0f0; /* Hover rengi */
+}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Giriş{% endblock %}
+
+{% block content %}
+<section class="h-100 gradient-form" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+
+                <div class="text-center">
+                  <img src="{% static 'img/logo.webp' %}"
+                    style="width: 180px;" alt="logo">
+                  <h4 class="mt-1 mb-5 pb-1">Bloğuma hoş geldiniz.</h4>
+                  <p>
+                    Lütfen hesabınıza giriş yapın</p>
+                </div>
+
+                <form method="POST">
+                  {% csrf_token %}
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="username">Kullanıcı Adı</label>
+                    <input type="text" id="username" class="form-control" name="username" placeholder="Phone number or email address" required />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="password">Şifre</label>
+                    <input type="password" id="password" class="form-control" name="password" required />
+                  </div>
+
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <button class="btn btn-primary btn-block gradient-custom-2 mb-0" type="submit" style="flex: 1;">Giriş Yap</button>
+                    <a class="text-muted ms-3" href="#!" style="flex-shrink: 0;">Şifreni mi unuttun?</a>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-center pb-4">
+                    <p class="mb-0 me-2">Hesabınız yok mu?</p>
+                    <a href="{% url 'register' %}" class="btn btn-primary btn-block gradient-custom-2 mb-0">Kayıt Ol</a>
+                  </div>
+
+                  {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                  {% endif %}
+
+                </form>
+
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">Blogumda sizinle paylaşacak çok şeyim var</h4>
+                <p class="small mb-0">Merhaba Blog Sever! En yeni makalelerimizden, ilham verici hikayelere katılmak bunlara yorum yapmak ve anında haberdar olmak için şimdi üye olun. Aramıza katılın, hiçbir şeyi kaçırmayın.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block js_files %} 
+    <script src="{% static 'account/js/script.js' %}"></script>
+{% endblock %}

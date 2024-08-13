@@ -1,0 +1,30 @@
+.about-container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+}
+
+.profile-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}

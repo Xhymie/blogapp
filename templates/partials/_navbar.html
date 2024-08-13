@@ -1,0 +1,51 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogs' %}">Bloglar</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Kategoriler
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                        {% for category in categories %}
+                            <li><a class="dropdown-item" href="{% url 'blogs_by_category' category.slug %}">{{ category.name|title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'hakkimda' %}">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'iletisim' %}">Bana Yazın!</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Çıkış</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">{{ user.get_full_name|title }}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Giriş</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Kayıt Ol</a>
+                    </li>
+                {% endif %}
+            </ul>
+            <form class="position-relative">
+                <input id="search-input" class="form-control me-2" type="search" name="query" placeholder="Arama..." aria-label="Arama" autocomplete="off">
+                <div id="search-results" class="list-group position-absolute"></div>
+            </form>
+        </div>
+    </div>
+</nav>
